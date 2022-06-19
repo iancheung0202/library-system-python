@@ -29,7 +29,7 @@ while True:
 
             while True:
                 time.sleep(1)
-                barcode = input("\033[1;35;1mScan the barcode of the book (press ENTER to return to main menu): \033[1;37;1m")
+                barcode = input("\033[1;35;1mScan the barcode of the book (press ENTER to return to main menu): ")
             
                 if barcode == "":
                     print("\033[1;37;1mThank you for using our service. Have a great day ahead!")

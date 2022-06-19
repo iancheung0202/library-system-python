@@ -1,0 +1,1 @@
+books = [{'name': 'Super Simple Chemistry: The Ultimate Bitesize Study Guide', 'author': 'Nigel Saunders', 'publisher': 'Dorling Kindersley', 'isbn': '978-0-2413-9045-0', 'no': '1234', 'available': True, 'borrowedBy': None, 'returnDate': None}]

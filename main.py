@@ -1,7 +1,4 @@
 import books, students, time, datetime, os, sys
-# import getkey
-# from getkey import getkey
-# python3 -m pip install getkey
 
 def restart():
     print("argv was",sys.argv)
@@ -14,8 +11,9 @@ while True:
     date = date.strftime('%Y-%m-%d')
     try:
         is_valid_student = is_valid_book = False
-        key = input("\033[1;37;1m\n======================================\nEnter 1️⃣  to borrow book\nEnter 2️⃣  to return book\nEnter 3️⃣  to check availability of book\nEnter 4️⃣  to check student's record\n======================================\n", end="")
+        key = input("\033[1;37;1m\n======================================\nEnter 1️⃣  to borrow book\nEnter 2️⃣  to return book\nEnter 3️⃣  to check availability of book\nEnter 4️⃣  to check student's record\n======================================\n")
         # key = getkey()
+        print("\033[A", end="")
         if key == "1":
             choice = 1
         elif key == "2":
@@ -137,7 +135,7 @@ while True:
                     print("Return Date:", book["returnDate"])
                 print("\033[1;32;1m----------------------------------------------")
             else:
-                print(f"\033[A033[94m{students.students[position]['name']} does not have any existing record.")
+                print(f"\033[A\033[94m{students.students[position]['name']} does not have any existing record.")
         else:
             print("\033[1;31;1mInvalid action. Please try again.                  ")
     except Exception:

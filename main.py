@@ -1,5 +1,6 @@
-import books, students, time, datetime, getkey, os, sys
-from getkey import getkey
+import books, students, time, datetime, os, sys
+# import getkey
+# from getkey import getkey
 # python3 -m pip install getkey
 
 def restart():
@@ -13,8 +14,8 @@ while True:
     date = date.strftime('%Y-%m-%d')
     try:
         is_valid_student = is_valid_book = False
-        print("\033[1;37;1m\n======================================\nEnter 1️⃣  to borrow book\nEnter 2️⃣  to return book\nEnter 3️⃣  to check availability of book\nEnter 4️⃣  to check student's record\n======================================\n", end="")
-        key = getkey()
+        key = input("\033[1;37;1m\n======================================\nEnter 1️⃣  to borrow book\nEnter 2️⃣  to return book\nEnter 3️⃣  to check availability of book\nEnter 4️⃣  to check student's record\n======================================\n", end="")
+        # key = getkey()
         if key == "1":
             choice = 1
         elif key == "2":

@@ -1,12 +1,17 @@
-import books, students, time, datetime, getkey
+import books, students, time, datetime, getkey, os, sys
 from getkey import getkey
 # python3 -m pip install getkey
+
+def restart():
+    print("argv was",sys.argv)
+    print("sys.executable was", sys.executable)
+    print("restart now")
+    os.execv(sys.executable, ['python'] + sys.argv)
 
 while True:
     date = datetime.datetime.now() + datetime.timedelta(days=14)
     date = date.strftime('%Y-%m-%d')
     try:
-        time.sleep(2)
         is_valid_student = is_valid_book = False
         print("\033[1;37;1m\n======================================\nEnter 1️⃣  to borrow book\nEnter 2️⃣  to return book\nEnter 3️⃣  to check availability of book\nEnter 4️⃣  to check student's record\n======================================\n", end="")
         key = getkey()
@@ -34,7 +39,7 @@ while True:
                     if card == Students[x]["no"]:
                         position = x
                         is_valid_student = True
-                        print("\033[A\033[1;33;1mWelcome to the library,", Students[x]["name"], "                    ")
+                        print("\033[A\033[1;33;1mWelcome to the library,", Students[x]["name"], "                                                     ")
                         break
                 if not is_valid_student:
                     print("\033[1;31;1mInvalid student. Please contact our committee members if you need help.                 ")
@@ -69,11 +74,11 @@ while True:
                                 # y = datetime.datetime.strptime(date, '%Y-%m-%d')
                                 book["returnDate"] = None
                                 # if x > y: # Student returns book early (Originally return date is later than today's date)
-                                print("\033[A\033[1;32;1mYou successfully returned", book["name"], "               ")
+                                print(f"\033[A\033[1;32;1mYou successfully returned {book['name']}                                         ")
                                 # else:
                                 # print("\033[1;32;1mYou successfully returned", book["name"], "(Late for", (str(y-x)).split(",")[0], ")")
                             else:
-                                print(f"\033[A\033[1;31;1m{book['name']} is already returned.             ")
+                                print(f"\033[A\033[1;31;1m{book['name']} is already returned.                                                    ")
                         file = open("books.py", "w")
                         file.write(f"books = {Books}")
                         file.close()
@@ -136,3 +141,7 @@ while True:
             print("\033[1;31;1mInvalid action. Please try again.                  ")
     except Exception:
         print("\033[1;31;1mInvalid action. Please try again.                  ")
+    
+
+    time.sleep(4)
+    os.system('clear')
